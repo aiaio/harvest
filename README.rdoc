@@ -1,0 +1,146 @@
+= harvest
+
+A ruby library wrapping (most of) the Harvest Api.
+
+== DESCRIPTION:
+
+This library uses ActiveResource and activeresource_throttle to provide simple, reliable access to the Harvest Api.  Good for building reporting scripts and simple apps.
+
+Note that this library does not support the complete Harvest Api at this time. See Features/Issues below for details.
+
+== USAGE:
+
+=== Creating a new harvest object:
+
+All calls to the Harvest API will originate from a Harvest object. Initialize it like so:
+
+  @harvest = Harvest(:email      => "joe@example.com", 
+                     :password   => "secret", 
+                     :sub_domain => "joeandcompany",
+                     :headers    => {"User-Agent" => "MyCompany"})
+                     
+The _headers_ argument is optional.
+                       
+=== Clients
+
+Index
+  @harvest.clients.find(:all)
+Show
+  @harvest.clients.find(43235)
+Create
+  @client = @harvest.clients.new
+  @client.attributes = {:name => "Company, LLC", :details => "New York, NY"}
+  @client.save
+Update
+  @client.first_name = "Smith"
+  @client.save
+Destroy
+  @client.destroy
+
+Toggle (Active/Inactive)
+  @client.toggle
+  
+=== Tasks
+
+Index
+  @harvest.tasks.find(:all)
+Show
+  @harvest.tasks.find(123)
+Create
+  @task = @harvest.tasks.new
+  @task.attributes = {:name => "Meeting",   :billable_by_default => false,
+                      :is_default => false, :default_hourly_rate => 100}
+  @task.save
+Update
+  @task.name = "Client Meeting"
+  @task.save
+Destroy
+  @task.destroy
+  
+=== People
+
+Index
+  @harvest.people.find(:all)
+Show
+  @harvest.people.find(123)
+  
+=== Projects
+
+Index
+  @harvest.projects.find(:all)
+Show
+  @harvest.projects.find(123)
+Create
+  @project = @harvest.projects.new
+  @project.attributes = {:name => "Refactor", :active => true, 
+                         :bill_by => "None", :client_id => @client.id, }
+  @project.save
+Update
+  @project.name = "Mega-Refactor"
+  @project.save
+Destroy
+  @project.destroy
+
+Toggle (Active/Inactive)
+  @project.toggle
+    
+==== User and Task Assignments
+
+  @project.users.find(:all)
+  @project.users.find(:first)
+  
+  @project.tasks.find(:all)
+  @project.tasks.find(:first)
+  
+=== Reports
+
+  @project.entries(:from => Time.now, :to => Time.now)
+  @project.entries(:from => Time.now, :to => Time.now, :user_id => @person.id)
+  
+  @person.entries(:from => Time.now, :to => Time.now)
+  @person.expenses(:from => Time.now, :to => Time.now)
+  
+== FEATURES/PROBLEMS:
+
+Supports most of the Harvest Api (http://www.getharvest.com/api) as of 12/2008.
+
+Though RESTful, the Harvest Api does not entirely follow ActiveResource conventions. In order to support the complete API, certain customizations will be required. <b>We welcome any contributions/modifications to help complete this Api.</b>
+
+The following Api features are incomplete due to incompatibilities with ActiveResource conventions (CRUD actions in parentheses):
+
+1. People (CUD)
+2. User & Task Assignments (CUD)
+3. Expenses (CUD)
+
+In addition, the following have not been implemented at all due to time constraints:
+
+1. Time Tracking Api
+2. Invoices, Invoice Payments, Invoice Categories, and Invoice Messages 
+
+Expect a more complete library in the near future. Again, contributions are welcome.
+
+== TEST SUITE
+
+This library includes a fairly thorough set of unit and integration tests. The unit tests can be run with the "rake" command.
+
+The integration tests require a Harvest account. It is best to use a trial account when running these tests.
+
+The credentials may be entered in test/test_helper.rb. To run the integration suite:
+
+  rake test:integration
+  
+Note that the integration test structure is somewhat unorthodox, as it requires tests to run in a particular order. The main test file is test/integration/harvest_integration_test.rb. Examine this to see how the integration suite works.
+  
+== REQUIREMENTS:
+
+Requires active_resource >= 2.1 and activeresource_throttle >= 1.0.
+
+active_resource_throttle should install automaticallt, but just in case you need to install manually:
+
+  gem sources -a http://gems.github.com
+  sudo gem install aiaio-active_resource_throttle 
+
+== INSTALL:
+  
+  gem sources -a http://gems.github.com
+  gem install aiaio-harvest
