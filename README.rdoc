@@ -102,7 +102,7 @@ Toggle (Active/Inactive)
   
 == FEATURES/PROBLEMS:
 
-Supports most of the Harvest Api (http://www.getharvest.com/api) as of 12/2008.
+Supports most of the Harvest Api (http://www.getharvest.com/api).
 
 Though RESTful, the Harvest Api does not entirely follow ActiveResource conventions. In order to support the complete API, certain customizations will be required. <b>We welcome any contributions/modifications to help complete this Api.</b>
 

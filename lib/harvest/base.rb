@@ -61,7 +61,7 @@ module Harvest
         load_resources
       end
       
-      # Load the class representing the various resources.
+      # Load the classes representing the various resources.
       def load_resources
         resource_path = File.join(File.dirname(__FILE__), "resources")
         Harvest.load_all_ruby_files_from_path(resource_path)
