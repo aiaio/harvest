@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>tasks (Harvest::Resources::Project)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/harvest/resources/project.rb, line 13</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tasks</span>
+        <span class="ruby-identifier">task_class</span> = <span class="ruby-constant">Harvest</span><span class="ruby-operator">::</span><span class="ruby-constant">Resources</span><span class="ruby-operator">::</span><span class="ruby-constant">TaskAssignment</span>.<span class="ruby-identifier">clone</span>
+        <span class="ruby-identifier">task_class</span>.<span class="ruby-identifier">project_id</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">id</span>
+        <span class="ruby-identifier">task_class</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

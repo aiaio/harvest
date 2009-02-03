@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Harvest</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Harvest</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/harvest/base_rb.html">
+                lib/harvest/base.rb
+                </a>
+        <br />
+                <a href="../files/lib/harvest/harvest_resource_rb.html">
+                lib/harvest/harvest_resource.rb
+                </a>
+        <br />
+                <a href="../files/lib/harvest/plugins/active_resource_inheritable_headers_rb.html">
+                lib/harvest/plugins/active_resource_inheritable_headers.rb
+                </a>
+        <br />
+                <a href="../files/lib/harvest/plugins/toggleable_rb.html">
+                lib/harvest/plugins/toggleable.rb
+                </a>
+        <br />
+                <a href="../files/lib/harvest/resources/client_rb.html">
+                lib/harvest/resources/client.rb
+                </a>
+        <br />
+                <a href="../files/lib/harvest/resources/entry_rb.html">
+                lib/harvest/resources/entry.rb
+                </a>
+        <br />
+                <a href="../files/lib/harvest/resources/expense_rb.html">
+                lib/harvest/resources/expense.rb
+                </a>
+        <br />
+                <a href="../files/lib/harvest/resources/expense_category_rb.html">
+                lib/harvest/resources/expense_category.rb
+                </a>
+        <br />
+                <a href="../files/lib/harvest/resources/person_rb.html">
+                lib/harvest/resources/person.rb
+                </a>
+        <br />
+                <a href="../files/lib/harvest/resources/project_rb.html">
+                lib/harvest/resources/project.rb
+                </a>
+        <br />
+                <a href="../files/lib/harvest/resources/task_rb.html">
+                lib/harvest/resources/task.rb
+                </a>
+        <br />
+                <a href="../files/lib/harvest/resources/task_assignment_rb.html">
+                lib/harvest/resources/task_assignment.rb
+                </a>
+        <br />
+                <a href="../files/lib/harvest/resources/user_assignment_rb.html">
+                lib/harvest/resources/user_assignment.rb
+                </a>
+        <br />
+                <a href="../files/lib/harvest_rb.html">
+                lib/harvest.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+This class is accessed by an instance of Project.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000016">load_all_ruby_files_from_path</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Module <a href="Harvest/Plugins.html" class="link">Harvest::Plugins</a><br />
+Module <a href="Harvest/Resources.html" class="link">Harvest::Resources</a><br />
+Class <a href="Harvest/Base.html" class="link">Harvest::Base</a><br />
+Class <a href="Harvest/HarvestResource.html" class="link">Harvest::HarvestResource</a><br />
+
+    </div>
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">VERSION</td>
+          <td>=</td>
+          <td class="context-item-value">&quot;0.8&quot;</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ApiDomain</td>
+          <td>=</td>
+          <td class="context-item-value">&quot;harvestapp.com&quot;</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
+
+        <div class="method-heading">
+          <a href="Harvest.src/M000016.html" target="Code" class="method-signature"
+            onclick="popupCode('Harvest.src/M000016.html');return false;">
+          <span class="method-name">load_all_ruby_files_from_path</span><span class="method-args">(path)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Class method to load all ruby files from a given path.
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
