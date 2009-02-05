@@ -66,6 +66,19 @@ class BaseTest < Test::Unit::TestCase
       assert_equal Harvest::Resources::Task, @harvest.tasks
     end
     
+    context "with SSL enabled" do
+      setup do
+        @harvest = Harvest::Base.new(:email      => @email,
+                                     :password   => @password,
+                                     :sub_domain => @sub_domain,
+                                     :headers    => @headers,
+                                     :ssl        => true)
+      end
+
+      should "have https in URL" do
+        assert_equal "https://bond.harvestapp.com", Harvest::HarvestResource.site.to_s
+      end
+    end
   end
   
 end

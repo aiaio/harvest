@@ -4,12 +4,13 @@ module Harvest
     # Requires a sub_domain, email, and password.
     # Specifying headers is optional, but useful for setting a user agent.
     def initialize(options={})
-      options.assert_valid_keys(:email, :password, :sub_domain, :headers)
+      options.assert_valid_keys(:email, :password, :sub_domain, :headers, :ssl)
       options.assert_required_keys(:email, :password, :sub_domain)
       @email        = options[:email]
       @password     = options[:password]
       @sub_domain   = options[:sub_domain]
       @headers      = options[:headers]
+      @ssl          = options[:ssl]
       configure_base_resource
     end
     
@@ -54,7 +55,7 @@ module Harvest
       # Configure resource base class so that 
       # inherited classes can access the api.
       def configure_base_resource
-        HarvestResource.site     = "http://#{@sub_domain}.#{Harvest::ApiDomain}"
+        HarvestResource.site     = "http#{'s' if @ssl}://#{@sub_domain}.#{Harvest::ApiDomain}"
         HarvestResource.user     = @email
         HarvestResource.password = @password
         HarvestResource.headers.update(@headers) if @headers.is_a?(Hash)
