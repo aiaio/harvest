@@ -19,7 +19,7 @@ All calls to the Harvest API will originate from a Harvest object. Initialize it
                      :sub_domain => "joeandcompany",
                      :headers    => {"User-Agent" => "MyCompany"})
                      
-The _headers_ argument is optional.
+The _headers_ argument is optional. Use <b>:ssl => true</b> if your account requires HTTPS.
                        
 === Clients
 
