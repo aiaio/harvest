@@ -2,7 +2,7 @@
  
  Gem::Specification.new do |s|
   s.name        = "harvest"
-  s.version     = "0.8"
+  s.version     = "0.81"
   s.authors     = ["Kyle Banker", "Alexander Interactive, Inc."]
   s.date        = "2008-12-17"
   s.summary     = "A wrapper for the Harvest Api.  See http://getharvest.com/api for details."
