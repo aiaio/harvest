@@ -50,6 +50,11 @@ module Harvest
       Harvest::Resources::Task
     end
 
+    # Invoices
+    def invoices
+      Harvest::Resources::Invoice
+    end
+
     private
     
       # Configure resource base class so that 
