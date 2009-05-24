@@ -5,7 +5,7 @@ module Harvest
   # Class method to load all ruby files from a given path.
   def self.load_all_ruby_files_from_path(path)
     Dir.foreach(path) do |file|
-      require File.join(path, file) if file =~ /\.rb/
+      require File.join(path, file) if file =~ /\.rb$/
     end
   end
   
