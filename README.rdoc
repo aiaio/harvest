@@ -83,7 +83,33 @@ Destroy
 
 Toggle (Active/Inactive)
   @project.toggle
-    
+
+=== Invoices
+
+Index
+  @invoices = @harvest.invoices.find(:all)
+
+Show
+  @invoice = @harvest.invoices.find(1)
+
+Find By Invoice Number
+  @invoice = @harvest.invoices.find_by_number('200')
+
+Create
+  @invoice = @harvest.invoices.new
+  @invoice.attributes = {:amount => '250.32', :client_id => @client.id}
+  @invoice.save
+
+Update
+  @invoice.notes = "Pending payment"
+  @invoice.save
+
+Destroy
+  @invoice.destroy
+
+Return parsed csv line items
+  @invoice.parsed_csv_line_items
+ 
 ==== User and Task Assignments
 
   @project.users.find(:all)
@@ -99,7 +125,8 @@ Toggle (Active/Inactive)
   
   @person.entries(:from => Time.now, :to => Time.now)
   @person.expenses(:from => Time.now, :to => Time.now)
-  
+
+ 
 == FEATURES/PROBLEMS:
 
 Supports most of the Harvest Api (http://www.getharvest.com/api).

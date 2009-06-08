@@ -36,16 +36,16 @@ class InvoiceTest < Test::Unit::TestCase
     end
 
     should "create a new invoice" do
-      project = Harvest::Resources::Invoice.new(:number => "200")
-      project.save
+      invoice = Harvest::Resources::Invoice.new(:number => "200")
+      invoice.save
       expected_request = ActiveResource::Request.new(:post, "/invoices.xml")
       assert ActiveResource::HttpMock.requests.include?(expected_request)
     end
 
     should "update an existing invoice" do
-      project = Harvest::Resources::Invoice.find(1)
-      project.number = "200"
-      project.save
+      invoice = Harvest::Resources::Invoice.find(1)
+      invoice.number = "200"
+      invoice.save
       expected_request = ActiveResource::Request.new(:put, "/invoices/1.xml")
       assert ActiveResource::HttpMock.requests.include?(expected_request)
     end

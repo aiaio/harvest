@@ -142,7 +142,6 @@ class PersonTest < Test::Unit::TestCase
     should "return all expense entries logged by the given user" do
       @person.expenses(:from => @from, :to => @to)
       expected_request = ActiveResource::Request.new(:get, @expense_path)
-      p ActiveResource::HttpMock.requests
       assert ActiveResource::HttpMock.requests.include?(expected_request)
     end
        
